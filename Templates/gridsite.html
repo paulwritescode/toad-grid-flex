@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid-Only Responsive Site</title>
+    <link rel="stylesheet" href="/styles/grid.css">
+</head>
+<body>
+
+    <div class="grid-container">
+
+        <header class="grid-item header">
+            <div class="logo">GridMaster</div>
+            <nav class="main-nav">
+                <a href="#home">Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        </header>
+
+        <main class="grid-item main-content">
+            <section id="hero" class="hero-section">
+                <div class="hero-text">
+                    <h1>Unleash the Power of CSS Grid!</h1>
+                    <p>Experience truly flexible and robust layouts with the two-dimensional might of CSS Grid.</p>
+                    <div class="hero-buttons">
+                        <button class="btn primary">Discover More</button>
+                        <button class="btn secondary">View Demos</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/static/grid-layout.jpeg" alt="Abstract grid design">
+                </div>
+            </section>
+
+            <section id="portfolio" class="portfolio-section">
+                <h2>Our Latest Works</h2>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item item-1">
+                        <img src="https://via.placeholder.com/300x200/efc3e6/ffffff?text=Project+Alpha" alt="Project Alpha">
+                        <h3>Project Alpha</h3>
+                        <p>Web redesign for a tech startup.</p>
+                    </div>Rec
+                    <div class="portfolio-item item-2">
+                        <img src="https://via.placeholder.com/300x200/a3e3ef/ffffff?text=Project+Beta" alt="Project Beta">
+                        <h3>Project Beta</h3>
+                        <p>E-commerce platform development.</p>
+                    </div>
+                    <div class="portfolio-item item-3">
+                        <img src="https://via.placeholder.com/300x200/f8d9a2/ffffff?text=Project+Gamma" alt="Project Gamma">
+                        <h3>Project Gamma</h3>
+                        <p>Mobile app UI/UX design.</p>
+                    </div>
+                    <div class="portfolio-item item-4">
+                        <img src="https://via.placeholder.com/300x200/b0e57c/ffffff?text=Project+Delta" alt="Project Delta">
+                        <h3>Project Delta</h3>
+                        <p>Branding and identity creation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="services-section">
+                <h2>What We Offer</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/80/3498db/ffffff?text=DEV" alt="Development Icon">
+                        <h3>Web Development</h3>
+                        <p>Building robust and scalable web applications.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/80/2ecc71/ffffff?text=DES" alt="Design Icon">
+                        <h3>UI/UX Design</h3>
+                        <p>Crafting intuitive and engaging user experiences.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/80/e74c3c/ffffff?text=SEO" alt="SEO Icon">
+                        <h3>SEO Optimization</h3>
+                        <p>Improving visibility and ranking in search engines.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://via.placeholder.com/80/f39c12/ffffff?text=MKT" alt="Marketing Icon">
+                        <h3>Digital Marketing</h3>
+                        <p>Driving traffic and conversions through various channels.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="grid-item sidebar">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <h3>Latest News</h3>
+            <p>New blog post on "Advanced CSS Grid Techniques" is live! <a href="#">Read more.</a></p>
+            <p>We're hiring for a Senior UI Developer. <a href="#">Apply now.</a></p>
+        </aside>
+
+        <footer class="grid-item footer">
+            <p>&copy; 2025 Grid-Only Site. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </footer>
+
+    </div> <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
