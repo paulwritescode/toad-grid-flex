@@ -1,0 +1,513 @@
+/* --- Global Resets & Base Styles --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    min-height: 100vh; /* Ensure body takes full viewport height for footer push */
+    display: flex; /* Make body a flex container */
+    flex-direction: column; /* Stack header, main, footer vertically */
+}
+
+/* Base Flex Container Class */
+.flex-container {
+    display: flex;
+}
+
+/* Base Flex Item Styles (apply to direct children of flex containers) */
+.flex-item {
+    box-sizing: border-box; /* Crucial for responsive sizing */
+}
+
+/* --- Utility Classes for common Flexbox patterns --- */
+.flex-row { flex-direction: row; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.justify-center { justify-content: center; }
+.justify-space-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.align-stretch { align-items: stretch; } /* Default but good to be explicit */
+.text-center { text-align: center; }
+
+/* --- Header Styling --- */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    justify-content: space-between; /* Logo left, Nav right */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.nav-menu {
+    flex-grow: 1; /* Allow nav to take available space */
+    justify-content: flex-end; /* Align menu items to the right */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.2rem;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevent nav items from shrinking on larger screens */
+}
+
+.nav-item:hover {
+    background-color: #34495e;
+    border-radius: 4px;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+/* --- Main Content Area --- */
+.main-content {
+    flex-direction: column; /* Stack sections vertically */
+    flex-grow: 1; /* Allow main content to take remaining space */
+    gap: 40px; /* Space between sections */
+    padding: 20px;
+    max-width: 1200px; /* Max width for content */
+    margin: 20px auto; /* Center main content */
+    align-items: stretch; /* Sections stretch to full width of main-content */
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    flex-direction: column; /* Default stack content inside sections */
+    align-items: center; /* Center content within sections */
+    text-align: center; /* Center text within sections */
+    gap: 20px; /* Space between internal elements of sections */
+}
+
+section h2 {
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    flex-direction: column; /* Stack text and image on small screens */
+    padding: 40px;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+}
+
+.hero-text {
+    flex-grow: 1; /* Allow text to take space */
+    order: 2; /* Image first on mobile, then text */
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+}
+
+.hero-image {
+    flex-grow: 1;
+    display: flex; /* Make image container a flex container to center image */
+    justify-content: center;
+    align-items: center;
+    order: 1; /* Image first on mobile */
+    margin-bottom: 20px; /* Space between image and text */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap */
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Prevent buttons from shrinking too much */
+}
+
+.primary-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #2ecc71;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: #ecf0f1;
+    color: #333;
+    border: 1px solid #bdc3c7;
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* --- Features Section --- */
+.feature-cards {
+    flex-wrap: wrap; /* Allow cards to wrap to next line */
+    justify-content: center; /* Center cards horizontally */
+    gap: 25px; /* Space between cards */
+}
+
+.feature-card {
+    background-color: #e8f5e9; /* Light green */
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-basis: 300px; /* Default size for cards */
+    flex-grow: 1; /* Allow cards to grow */
+    flex-shrink: 1; /* Allow cards to shrink */
+    max-width: calc(100% / 1 - 25px); /* Max width for single column on mobile */
+    min-height: 180px; /* Ensure cards have minimum height */
+    display: flex; /* Make card content a flex container */
+    flex-direction: column; /* Stack title and paragraph */
+    justify-content: center; /* Vertically center content if needed */
+    align-items: center; /* Horizontally center content */
+}
+
+.feature-card h3 {
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+/* --- About Section --- */
+.about-section {
+    flex-direction: column; /* Stack image and text on small screens */
+}
+
+.about-image {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.about-text {
+    flex-grow: 1;
+    text-align: left; /* Align text within about section */
+    max-width: 700px;
+    margin: 0 auto; /* Center text block */
+}
+
+.about-text h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+    flex-direction: column; /* Stack list items */
+    gap: 5px;
+    margin-top: 15px;
+    align-items: flex-start; /* Align list items to the left */
+}
+
+.about-list li {
+    display: flex; /* Make list item a flex container */
+    align-items: center; /* Align bullet and text */
+    gap: 8px;
+}
+
+.bullet {
+    color: #3498db;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Contact Section --- */
+.contact-form {
+    flex-direction: column; /* Stack form groups */
+    gap: 15px;
+    width: 100%;
+    max-width: 600px; /* Max width for the form */
+    margin: 0 auto; /* Center the form */
+    align-items: stretch; /* Form groups stretch to full width of form */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input */
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #555;
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%; /* Ensure inputs take full width of form-group */
+    box-sizing: border-box; /* Include padding/border in width */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.submit-btn {
+    align-self: center; /* Center the submit button within the form */
+    margin-top: 10px;
+    width: 100%; /* Full width button on small screens */
+    max-width: 250px; /* Limit button width on larger screens */
+}
+
+/* --- Footer Styling --- */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 2rem;
+    margin-top: auto; /* Pushes footer to the bottom */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow footer items to wrap */
+    gap: 15px; /* Space between footer elements on wrap */
+    text-align: center; /* Default center text for responsiveness */
+}
+
+.footer p {
+    margin: 0;
+    flex-grow: 1; /* Allow paragraph to grow */
+    order: 2; /* Default order, will change on desktop */
+}
+
+.social-links {
+    gap: 10px;
+    order: 1; /* Default order, will change on desktop */
+    justify-content: center; /* Center social icons on small screens */
+    flex-grow: 1;
+}
+
+.social-icon {
+    background-color: #34495e;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #4a667f;
+}
+
+/* --- Responsive Adjustments with Media Queries --- */
+
+/* Tablet and larger screens (e.g., 768px and up) */
+@media (min-width: 768px) {
+    .header {
+        padding: 1rem 3rem;
+    }
+
+    .nav-menu {
+        flex-grow: 1;
+        justify-content: flex-end; /* Still align right */
+        flex-direction: row; /* Ensure row direction */
+    }
+
+    .menu-toggle {
+        display: none; /* Hide toggle button on larger screens */
+    }
+
+    /* Hero Section - side-by-side layout */
+    .hero-section {
+        flex-direction: row; /* Image and text side-by-side */
+        text-align: left;
+        align-items: center;
+    }
+
+    .hero-text {
+        order: 1; /* Text first */
+        padding-right: 30px;
+    }
+
+    .hero-image {
+        order: 2; /* Image second */
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    .hero-buttons {
+        justify-content: flex-start; /* Align buttons to the left */
+    }
+
+    /* Features Section - more columns */
+    .feature-card {
+        flex-basis: calc(50% - 25px); /* Two columns */
+        max-width: calc(50% - 25px); /* Max width for two columns */
+    }
+
+    /* About Section - side-by-side */
+    .about-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .about-image {
+        padding-right: 30px;
+        margin-bottom: 0;
+    }
+
+    .about-text h2 {
+        text-align: left;
+    }
+
+    .about-list {
+        align-items: flex-start; /* Re-align list items to the left */
+    }
+
+    /* Contact Section - adjust button width */
+    .submit-btn {
+        width: auto; /* Button can shrink */
+        align-self: flex-start; /* Align button to the left */
+    }
+
+    /* Footer - adjust order for desktop */
+    .footer p {
+        order: 1; /* Paragraph first */
+        flex-grow: 0; /* Don't force growth */
+    }
+
+    .social-links {
+        order: 2; /* Social links second */
+        justify-content: flex-end; /* Align social links right */
+        flex-grow: 0;
+    }
+}
+
+/* Desktop and larger screens (e.g., 1024px and up) */
+@media (min-width: 1024px) {
+    .header {
+        padding: 1rem 4rem;
+    }
+
+    .nav-menu {
+        flex-grow: 0; /* Nav doesn't need to grow as much */
+        justify-content: flex-end;
+    }
+
+    /* Features Section - three columns */
+    .feature-card {
+        flex-basis: calc(33.333% - 25px); /* Three columns */
+        max-width: calc(33.333% - 25px); /* Max width for three columns */
+    }
+
+    /* Hero and About image scaling */
+    .hero-image img,
+    .about-image img {
+        max-width: 450px; /* Cap max width for images */
+    }
+}
+
+/* Mobile-specific adjustments (max-width for "menu-toggle" to show) */
+@media (max-width: 767px) {
+    .header {
+        flex-wrap: wrap; /* Allow header items to wrap */
+        padding: 1rem;
+    }
+
+    .nav-menu {
+        flex-direction: column; /* Stack nav items vertically */
+        width: 100%;
+        background-color: #3f5b78;
+        max-height: 0; /* Hidden by default */
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        margin-top: 10px; /* Space from logo/toggle */
+        align-items: center; /* Center nav items when collapsed */
+    }
+
+    .nav-menu.active {
+        max-height: 200px; /* Show menu */
+        transition: max-height 0.5s ease-in;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block; /* Show toggle button on small screens */
+    }
+
+    /* Adjust order for mobile footer */
+    .footer {
+        flex-direction: column; /* Stack footer items */
+    }
+
+    .footer p {
+        order: 2; /* Paragraph below social links */
+    }
+
+    .social-links {
+        order: 1; /* Social links above paragraph */
+        margin-bottom: 10px; /* Space between social links and paragraph */
+    }
+}
